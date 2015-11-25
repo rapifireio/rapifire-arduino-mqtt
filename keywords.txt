@@ -1,0 +1,16 @@
+###########################################
+# Datatypes (KEYWORD1)
+###########################################
+
+RapifireMqtt	KEYWORD1
+
+###########################################
+# Methods and Functions (KEYWORD2)
+###########################################
+
+connect	KEYWORD2
+connected	KEYWORD2
+addValue	KEYWORD2
+publish	KEYWORD2
+loop	KEYWORD2
+state	KEYWORD2

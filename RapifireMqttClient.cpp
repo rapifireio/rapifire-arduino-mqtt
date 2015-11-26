@@ -1,13 +1,13 @@
-#include "RapifireMqtt.h"
+#include "RapifireMqttClient.h"
 
-RapifireMqtt::RapifireMqtt(const char* thingId, const char* thingToken, const char* dataTopic, Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, client)
+RapifireMqttClient::RapifireMqttClient(const char* thingId, const char* thingToken, const char* dataTopic, Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, client)
 {
   _thingId = thingId;
   _thingToken = thingToken;
   _dataTopic = dataTopic;
 }
 
-RapifireMqtt::RapifireMqtt(const char* thingId, const char* thingToken, const char* dataTopic, const char* commandsTopic, void (*callback)(char*, uint8_t*, unsigned int), Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, callback, client)
+RapifireMqttClient::RapifireMqttClient(const char* thingId, const char* thingToken, const char* dataTopic, const char* commandsTopic, void (*callback)(char*, uint8_t*, unsigned int), Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, callback, client)
 {
   _thingId = thingId;
   _thingToken = thingToken;
@@ -15,7 +15,7 @@ RapifireMqtt::RapifireMqtt(const char* thingId, const char* thingToken, const ch
   _commandsTopic = commandsTopic;
 }
 
-boolean RapifireMqtt::connect()
+boolean RapifireMqttClient::connect()
 {
   if (pubsub.connect( _thingId, _thingId, _thingToken)) {
     pubsub.subscribe(_commandsTopic);
@@ -26,12 +26,12 @@ boolean RapifireMqtt::connect()
   }
 }
 
-boolean RapifireMqtt::connected()
+boolean RapifireMqttClient::connected()
 {
   return pubsub.connected();
 }
 
-void RapifireMqtt::addValue(const char* name, const char* unit, float value)
+void RapifireMqttClient::addValue(const char* name, const char* unit, float value)
 {
   if (message != F("")) {
     message += F(",");
@@ -46,7 +46,7 @@ void RapifireMqtt::addValue(const char* name, const char* unit, float value)
   message += F("}");
 }
 
-boolean RapifireMqtt::publish()
+boolean RapifireMqttClient::publish()
 {
   message = String(F("{\"e\":[")) + message + String(F("]}"));
 
@@ -56,12 +56,12 @@ boolean RapifireMqtt::publish()
   return result;
 }
 
-boolean RapifireMqtt::loop()
+boolean RapifireMqttClient::loop()
 {
   return pubsub.loop();
 }
 
-int RapifireMqtt::state()
+int RapifireMqttClient::state()
 {
   return pubsub.state();
 }

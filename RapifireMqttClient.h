@@ -1,5 +1,5 @@
-#ifndef RapifireMqtt_h
-#define RapifireMqtt_h
+#ifndef RapifireMqttClient_h
+#define RapifireMqttClient_h
 
 #include <Client.h>
 #include <PubSubClient.h>
@@ -7,7 +7,7 @@
 const char RAPIFIRE_HOST[] = "mqtt.rapifire.com";
 const uint16_t RAPIFIRE_PORT = 1883;
 
-class RapifireMqtt
+class RapifireMqttClient
 {
   private:
     PubSubClient pubsub;
@@ -18,8 +18,8 @@ class RapifireMqtt
     
     String message = "";
   public:
-    RapifireMqtt(const char* thingId, const char* thingToken, const char* dataTopic, Client& client);
-    RapifireMqtt(const char* thingId, const char* thingToken, const char* dataTopic, const char* commandsTopic, void (*callback)(char*, uint8_t*, unsigned int), Client& client);
+    RapifireMqttClient(const char* thingId, const char* thingToken, const char* dataTopic, Client& client);
+    RapifireMqttClient(const char* thingId, const char* thingToken, const char* dataTopic, const char* commandsTopic, void (*callback)(char*, uint8_t*, unsigned int), Client& client);
     
     boolean connect();
     boolean connected();

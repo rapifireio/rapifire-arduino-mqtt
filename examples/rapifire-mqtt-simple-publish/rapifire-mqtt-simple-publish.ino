@@ -1,6 +1,6 @@
 #include <YunClient.h>
 #include <PubSubClient.h>
-#include <RapifireMqtt.h>
+#include <RapifireMqttClient.h>
 
 #define THING_ID "YOUR_THING_ID"
 #define THING_KEY "YOUR_THING_KEY"
@@ -8,7 +8,7 @@
 
 YunClient client;
 
-RapifireMqtt rapifire(THING_ID, THING_KEY, DATA_TOPIC, client);
+RapifireMqttClient rapifire(THING_ID, THING_KEY, DATA_TOPIC, client);
 int counter = 0;
 
 void setup() {

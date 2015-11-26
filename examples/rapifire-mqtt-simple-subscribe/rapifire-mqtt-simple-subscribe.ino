@@ -1,6 +1,6 @@
 #include <YunClient.h>
 #include <PubSubClient.h>
-#include <RapifireMqtt.h>
+#include <RapifireMqttClient.h>
 
 #define THING_ID "YOUR_THING_ID"
 #define THING_KEY "YOUR_THING_KEY"
@@ -18,7 +18,7 @@ void callback(char* topic, uint8_t* bytes, unsigned int length)
   Serial.println();
 }
 
-RapifireMqtt rapifire(THING_ID, THING_KEY, DATA_TOPIC, COMMANDS_TOPIC, callback, client);
+RapifireMqttClient rapifire(THING_ID, THING_KEY, DATA_TOPIC, COMMANDS_TOPIC, callback, client);
 
 void setup() {
   Serial.begin(9600);

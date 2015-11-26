@@ -1,6 +1,6 @@
 #include <YunClient.h>
 #include <PubSubClient.h>
-#include <RapifireMqtt.h>
+#include <RapifireMqttClient.h>
 #include <DHT.h>
 
 #define THING_ID "YOUR_THING_ID"
@@ -13,7 +13,7 @@
 YunClient client;
 DHT dht(DHTPIN, DHTTYPE);
 
-RapifireMqtt rapifire(THING_ID, THING_KEY, DATA_TOPIC, client);
+RapifireMqttClient rapifire(THING_ID, THING_KEY, DATA_TOPIC, client);
 
 void setup() {
   Serial.begin(9600);

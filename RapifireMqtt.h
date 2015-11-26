@@ -14,10 +14,12 @@ class RapifireMqtt
     const char* _thingId;
     const char* _thingToken;
     const char* _dataTopic;
-
+    const char* _commandsTopic;
+    
     String message = "";
   public:
     RapifireMqtt(const char* thingId, const char* thingToken, const char* dataTopic, Client& client);
+    RapifireMqtt(const char* thingId, const char* thingToken, const char* dataTopic, const char* commandsTopic, void (*callback)(char*, uint8_t*, unsigned int), Client& client);
     
     boolean connect();
     boolean connected();

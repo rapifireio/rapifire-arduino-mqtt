@@ -1,26 +1,22 @@
 #include <YunClient.h>
 #include <PubSubClient.h>
 #include <RapifireMqtt.h>
-#include <DHT.h>
 
 #define THING_ID "YOUR_THING_ID"
 #define THING_KEY "YOUR_THING_KEY"
 #define DATA_TOPIC "YOUR_DATA_TOPIC"
 
-#define DHTPIN 2
-#define DHTTYPE DHT21
-
 YunClient client;
-DHT dht(DHTPIN, DHTTYPE);
 
 RapifireMqtt rapifire(THING_ID, THING_KEY, DATA_TOPIC, client);
+int counter = 0;
 
 void setup() {
   Serial.begin(9600);
-
+  
   Serial.println(F("Starting bridge..."));
   Bridge.begin();
-
+  
   Serial.println(F("Bridge ready."));
 }
 
@@ -33,19 +29,12 @@ void loop() {
     }
   }
 
-  float temperature = dht.readTemperature();
-  float humidity = dht.readHumidity();
+  rapifire.addValue("test", "", counter++);
+  rapifire.publish();
 
-  rapifire.addValue("temperature", "C", temperature);
-  rapifire.addValue("humidity", "%RH", dht.readHumidity());
+  Serial.print("counter: ");
+  Serial.println(counter);
 
-  if (rapifire.publish()) {
-    Serial.print(F("Message published, temp: "));
-    Serial.print(temperature);
-    Serial.print(F("C, humidity: "));
-    Serial.print(humidity);
-    Serial.println(F("%RH"));
-  }
-
-  delay(10000);
+  delay(1000);
 }
+

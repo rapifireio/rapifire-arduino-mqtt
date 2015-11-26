@@ -2,7 +2,7 @@
 # Datatypes (KEYWORD1)
 ###########################################
 
-RapifireMqtt	KEYWORD1
+RapifireMqttClient	KEYWORD1
 
 ###########################################
 # Methods and Functions (KEYWORD2)

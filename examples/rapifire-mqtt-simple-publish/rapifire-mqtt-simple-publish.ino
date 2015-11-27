@@ -29,7 +29,7 @@ void loop() {
     }
   }
 
-  rapifire.addValue("test", "", counter++);
+  rapifire.addValue("test", counter++);
   rapifire.publish();
 
   Serial.print("counter: ");

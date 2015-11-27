@@ -24,6 +24,7 @@ class RapifireMqttClient
     boolean connect();
     boolean connected();
 
+    void addValue(const char* name, float value);
     void addValue(const char* name, const char* unit, float value);
     boolean publish();
     

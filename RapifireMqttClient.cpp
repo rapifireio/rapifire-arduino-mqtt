@@ -31,6 +31,19 @@ boolean RapifireMqttClient::connected()
   return pubsub.connected();
 }
 
+void RapifireMqttClient::addValue(const char* name, float value)
+{
+  if (message != F("")) {
+    message += F(",");
+  }
+
+  message += F("{\"n\": \"");
+  message += name;
+  message += F("\",\"v\": ");
+  message += value;
+  message += F("}");
+}
+
 void RapifireMqttClient::addValue(const char* name, const char* unit, float value)
 {
   if (message != F("")) {

@@ -1,6 +1,6 @@
 # Arduino Client for Rapifire MQTT
 
-The library simplifies the integration of Arduino projects with the [rapifire](http://rapifire.com).com platform.
+The library simplifies the integration of Arduino projects with the [rapifire.com](http://rapifire.com) platform.
 
 # Examples
 

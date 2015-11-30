@@ -1,13 +1,13 @@
-# Arduino Client for Rapifire MQTT
+# Arduino Client of RAPIFIRE MQTT
 
-The library simplifies the integration of Arduino projects with the [rapifire.com](http://rapifire.com) platform.
+The library simplifies the integration of Arduino projects with the [RAPIFIRE](http://rapifire.com) platform.
 
 # Examples
 
 The library is provided with the following examples:
 
-* __rapifire-mqtt-simple-publish__ - explains how to publish the data to the rapifire.com platform,
-* __rapifire-mqtt-simple-subscribe__ - explains how to receives commands from the rapifire.com platform,
+* __rapifire-mqtt-simple-publish__ - explains how to publish the data to the [RAPIFIRE](http://rapifire.com) platform,
+* __rapifire-mqtt-simple-subscribe__ - explains how to receives commands from [RAPIFIRE](http://rapifire.com) platform,
 * __rapifire-mqtt-dht__ - simple project using the rapifire.com platform to visualize the data from DHT21 module.
 
 # Dependencies

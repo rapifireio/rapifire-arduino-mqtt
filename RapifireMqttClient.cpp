@@ -31,32 +31,42 @@ boolean RapifireMqttClient::connected()
   return pubsub.connected();
 }
 
-void RapifireMqttClient::addValue(const char* name, float value)
+boolean RapifireMqttClient::addEvent(String& event)
 {
-  if (message != F("")) {
-    message += F(",");
+  if (strlen(_dataTopic) + message.length() + event.length() + 1 <= RAPIFIRE_MAX_MSG_SIZE)
+  {
+    if (message != F("")) {
+      message += F(",");
+    }
+    message += event;
+    return true;
+  } else {
+    return false;
   }
-
-  message += F("{\"n\": \"");
-  message += name;
-  message += F("\",\"v\": ");
-  message += value;
-  message += F("}");
 }
 
-void RapifireMqttClient::addValue(const char* name, const char* unit, float value)
+boolean RapifireMqttClient::addValue(const char* name, float value)
 {
-  if (message != F("")) {
-    message += F(",");
-  }
+  String event = F("{\"n\":\"");
+  event += name;
+  event += F("\",\"v\":");
+  event += value;
+  event += F("}");
 
-  message += F("{\"n\": \"");
-  message += name;
-  message += F("\",\"u\": \"");
-  message += unit;
-  message += F("\",\"v\": ");
-  message += value;
-  message += F("}");
+  return addEvent(event);
+}
+
+boolean RapifireMqttClient::addValue(const char* name, const char* unit, float value)
+{
+  String event = F("{\"n\":\"");
+  event += name;
+  event += F("\",\"u\":\"");
+  event += unit;
+  event += F("\",\"v\": ");
+  event += value;
+  event += F("}");
+
+  return addEvent(event);
 }
 
 boolean RapifireMqttClient::publish()

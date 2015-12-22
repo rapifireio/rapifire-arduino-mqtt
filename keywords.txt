@@ -11,6 +11,8 @@ RapifireMqttClient	KEYWORD1
 connect	KEYWORD2
 connected	KEYWORD2
 addValue	KEYWORD2
+addStringValue	KEYWORD2
+addBooleanValue	KEYWORD2
 publish	KEYWORD2
 loop	KEYWORD2
 state	KEYWORD2

@@ -5,7 +5,6 @@
 
 #define THING_ID "YOUR_THING_ID"
 #define THING_KEY "YOUR_THING_KEY"
-#define DATA_TOPIC "YOUR_DATA_TOPIC"
 
 #define DHTPIN 2
 #define DHTTYPE DHT21
@@ -13,7 +12,7 @@
 YunClient client;
 DHT dht(DHTPIN, DHTTYPE);
 
-RapifireMqttClient rapifire(THING_ID, THING_KEY, DATA_TOPIC, client);
+RapifireMqttClient rapifire(THING_ID, THING_KEY, client);
 
 void setup() {
   Serial.begin(9600);

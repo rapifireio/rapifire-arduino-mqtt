@@ -4,11 +4,10 @@
 
 #define THING_ID "YOUR_THING_ID"
 #define THING_KEY "YOUR_THING_KEY"
-#define DATA_TOPIC "YOUR_DATA_TOPIC"
 
 YunClient client;
 
-RapifireMqttClient rapifire(THING_ID, THING_KEY, DATA_TOPIC, client);
+RapifireMqttClient rapifire(THING_ID, THING_KEY, client);
 int counter = 0;
 
 void setup() {

@@ -4,8 +4,6 @@
 
 #define THING_ID "YOUR_THING_ID"
 #define THING_KEY "YOUR_THING_KEY"
-#define DATA_TOPIC "YOUR_DATA_TOPIC"
-#define COMMANDS_TOPIC "YOUR_COMMANDS_TOPIC"
 
 YunClient client;
 
@@ -18,7 +16,7 @@ void callback(char* topic, uint8_t* bytes, unsigned int length)
   Serial.println();
 }
 
-RapifireMqttClient rapifire(THING_ID, THING_KEY, DATA_TOPIC, COMMANDS_TOPIC, callback, client);
+RapifireMqttClient rapifire(THING_ID, THING_KEY, callback, client);
 
 void setup() {
   Serial.begin(9600);

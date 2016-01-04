@@ -1,5 +1,12 @@
 #include "RapifireMqttClient.h"
 
+const char VALUE[] = "v";
+const char STRING_VALUE[] = "sv";
+const char BOOL_VALUE[] = "bv";
+
+const char TRUE[] = "true";
+const char FALSE[] = "false";
+
 RapifireMqttClient::RapifireMqttClient(const char* thingId, const char* thingToken, Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, client)
 {
   _thingId = thingId;
@@ -81,47 +88,47 @@ boolean RapifireMqttClient::addEvent(String& event)
 
 boolean RapifireMqttClient::addValue(const char* name, double value)
 {
-  return addEvent(name, "v", String(value));
+  return addEvent(name, VALUE, String(value));
 }
 
 boolean RapifireMqttClient::addValue(const char* name, const char* unit, double value)
 {
-  return addEvent(name, "v", String(value), unit);
+  return addEvent(name, VALUE, String(value), unit);
 }
 
 boolean RapifireMqttClient::addStringValue(const char* name, const char* value)
 {
-  String text = "\"";
+  String text = F("\"");
   text += value;
-  text += "\"";
+  text += F("\"");
   
-  return addEvent(name, "sv", text);
+  return addEvent(name, STRING_VALUE, text);
 }
 
 boolean RapifireMqttClient::addStringValue(const char* name, const char* unit, const char* value)
 {
-  String text = "\"";
+  String text = F("\"");
   text += value;
-  text += "\"";
+  text += F("\"");
   
-  return addEvent(name, "sv", text, unit);
+  return addEvent(name, STRING_VALUE, text, unit);
 }
 
 boolean RapifireMqttClient::addBooleanValue(const char* name, boolean value)
 {
   if (value) {
-    addEvent(name, "bv", "true");
+    addEvent(name, BOOL_VALUE, TRUE);
   } else {
-    addEvent(name, "bv", "false");
+    addEvent(name, BOOL_VALUE, FALSE);
   }
 }
 
 boolean RapifireMqttClient::addBooleanValue(const char* name, const char* unit, boolean value)
 {
   if (value) {
-    addEvent(name, "bv", "true", unit);
+    addEvent(name, BOOL_VALUE, TRUE, unit);
   } else {
-    addEvent(name, "bv", "false", unit);
+    addEvent(name, BOOL_VALUE, FALSE, unit);
   }
 }
 

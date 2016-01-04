@@ -29,8 +29,8 @@ class RapifireMqttClient
     PubSubClient pubsub;
     const char* _thingId;
     const char* _thingToken;
-    const char* _dataTopic;
-    const char* _commandsTopic;
+    String _dataTopic = "/";
+    String _commandsTopic = "/";
     
     String message = "";
 
@@ -43,22 +43,19 @@ class RapifireMqttClient
      *  
      *  @param thingId Thing ID. More details in RAPIFIRE.
      *  @param thingToken Thing Token. More details in RAPIFIRE.
-     *  @param dataTopic Data Publishing Topic. More details in RAPIFIRE.
      *  @param client an implementation of Arduino's Client that provides the internet connection.
      */
-    RapifireMqttClient(const char* thingId, const char* thingToken, const char* dataTopic, Client& client);
+    RapifireMqttClient(const char* thingId, const char* thingToken, Client& client);
 
     /** 
      *  The client constructor.
      *  
      *  @param thingId Thing ID. More details in RAPIFIRE.
      *  @param thingToken Thing Token. More details in RAPIFIRE.
-     *  @param dataTopic Data Publishing Topic. More details in RAPIFIRE.
-     *  @param commandsTopic Command Receiving Topic. More details in RAPIFIRE.
      *  @param callback a callback function.
      *  @param client an implementation of Arduino's Client that provides the internet connection.
      */
-    RapifireMqttClient(const char* thingId, const char* thingToken, const char* dataTopic, const char* commandsTopic, void (*callback)(char*, uint8_t*, unsigned int), Client& client);
+    RapifireMqttClient(const char* thingId, const char* thingToken, void (*callback)(char*, uint8_t*, unsigned int), Client& client);
     
     /** 
      *  The method initialize a connection with RAPIFIRE.

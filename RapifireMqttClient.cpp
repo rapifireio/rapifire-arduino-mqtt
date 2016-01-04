@@ -1,24 +1,30 @@
 #include "RapifireMqttClient.h"
 
-RapifireMqttClient::RapifireMqttClient(const char* thingId, const char* thingToken, const char* dataTopic, Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, client)
+RapifireMqttClient::RapifireMqttClient(const char* thingId, const char* thingToken, Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, client)
 {
   _thingId = thingId;
   _thingToken = thingToken;
-  _dataTopic = dataTopic;
+  
+  _dataTopic += thingId;
+  _dataTopic += F("/data");
 }
 
-RapifireMqttClient::RapifireMqttClient(const char* thingId, const char* thingToken, const char* dataTopic, const char* commandsTopic, void (*callback)(char*, uint8_t*, unsigned int), Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, callback, client)
+RapifireMqttClient::RapifireMqttClient(const char* thingId, const char* thingToken, void (*callback)(char*, uint8_t*, unsigned int), Client& client): pubsub(RAPIFIRE_HOST, RAPIFIRE_PORT, callback, client)
 {
   _thingId = thingId;
   _thingToken = thingToken;
-  _dataTopic = dataTopic;
-  _commandsTopic = commandsTopic;
+  
+  _dataTopic += thingId;
+  _dataTopic += F("/data");
+  
+  _commandsTopic += thingId; 
+  _commandsTopic += F("/commands");
 }
 
 boolean RapifireMqttClient::connect()
 {
   if (pubsub.connect( _thingId, _thingId, _thingToken)) {
-    pubsub.subscribe(_commandsTopic);
+    pubsub.subscribe(_commandsTopic.c_str());
 
     return true;
   } else {
@@ -61,7 +67,7 @@ boolean RapifireMqttClient::addEvent(const char* name, const char* type, String 
 
 boolean RapifireMqttClient::addEvent(String& event)
 {
-  if (strlen(_dataTopic) + message.length() + event.length() + 1 <= RAPIFIRE_MAX_MSG_SIZE)
+  if (_dataTopic.length() + message.length() + event.length() + 1 <= RAPIFIRE_MAX_MSG_SIZE)
   {
     if (message != F("")) {
       message += F(",");
@@ -123,7 +129,7 @@ boolean RapifireMqttClient::publish()
 {
   message = String(F("{\"e\":[")) + message + String(F("]}"));
 
-  boolean result = pubsub.publish(_dataTopic, message.c_str());
+  boolean result = pubsub.publish(_dataTopic.c_str(), message.c_str());
   message = F("");
 
   return result;

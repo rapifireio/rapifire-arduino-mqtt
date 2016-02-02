@@ -27,11 +27,8 @@ The constructor usage without the callback function. You can use it if you only 
 #include <PubSubClient.h>
 #include <RapifireMqttClient.h>
 
-#define THING_ID "YOUR_THING_ID"
-#define THING_KEY "YOUR_THING_KEY"
-
 YunClient client;
-RapifireMqttClient rapifire(THING_ID, THING_KEY, client);
+RapifireMqttClient rapifire("YOUR_THING_ID", "YOUR_THING_KEY", client);
 ```
 
 The constructor usage example when you are plaing to receive messages from RAPIFIRE.
@@ -41,14 +38,11 @@ The constructor usage example when you are plaing to receive messages from RAPIF
 #include <PubSubClient.h>
 #include <RapifireMqttClient.h>
 
-#define THING_ID "YOUR_THING_ID"
-#define THING_KEY "YOUR_THING_KEY"
-
 void callback(char* topic, uint8_t* bytes, unsigned int length)
 {
   // Your processing code
 }
 
 YunClient client;
-RapifireMqttClient rapifire(THING_ID, THING_KEY, client);
+RapifireMqttClient rapifire("YOUR_THING_ID", "YOUR_THING_KEY", client);
 ```

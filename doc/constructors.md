@@ -28,7 +28,7 @@ The constructor usage without the callback function. You can use it if you only 
 #include <RapifireMqttClient.h>
 
 YunClient client;
-RapifireMqttClient rapifire("YOUR_THING_ID", "YOUR_THING_KEY", client);
+RapifireMqttClient rapifire("YOUR_THING_ID", "YOUR_THING_TOKEN", client);
 ```
 
 The constructor usage example when you are plaing to receive messages from RAPIFIRE.
@@ -44,5 +44,5 @@ void callback(char* topic, uint8_t* bytes, unsigned int length)
 }
 
 YunClient client;
-RapifireMqttClient rapifire("YOUR_THING_ID", "YOUR_THING_KEY", client);
+RapifireMqttClient rapifire("YOUR_THING_ID", "YOUR_THING_TOKEN", callback, client);
 ```

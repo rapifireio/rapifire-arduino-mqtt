@@ -1,7 +1,7 @@
 # RapifireMqttClient
 
 ### Constructors
-- RapifireMqttClient()
+- [RapifireMqttClient()](constructors.md)
 
 ### Methods
 - connect()

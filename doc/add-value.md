@@ -20,7 +20,7 @@ addValue(name, unit, value);
 
 * __name__ - a name of the value to add. It will be displayed in RAPIFIRE,
 * __value__ - a value to send,
-* __unit__ - a unit of measure. The unit of  must be one of [allowed units](units.md).
+* __unit__ - a unit of measure. The unit of measure must be one of [allowed units](units.md).
 
 ### Returns
 

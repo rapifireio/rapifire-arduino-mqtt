@@ -105,17 +105,6 @@ class RapifireMqttClient
      *  @return FALSE if the message is too long and another event cannot be added.
      */
     boolean addStringValue(const char* name, const char* value);
-
-    /** 
-     *  Adds a new string value to the current SenML message.
-     *  
-     *  @paran name a name of the value to add. It will be displayed in RAPIFIRE.
-     *  @param unit a unit of the value. 
-     *  @param value a value to send.
-     *  
-     *  @return FALSE if the message is too long and another event cannot be added.
-     */
-    boolean addStringValue(const char* name, const char* unit, const char* value);
     
     /** 
      *  Adds a new boolean value to the current SenML message.
@@ -126,18 +115,7 @@ class RapifireMqttClient
      *  @return FALSE if the message is too long and another event cannot be added.
      */
     boolean addBooleanValue(const char* name, boolean value);
-
-    /** 
-     *  Adds a new boolean value to the current SenML message.
-     *  
-     *  @paran name a name of the value to add. It will be displayed in RAPIFIRE.
-     *  @param unit a unit of the value. 
-     *  @param value a value to send.
-     *  
-     *  @return FALSE if the message is too long and another event cannot be added.
-     */
-    boolean addBooleanValue(const char* name, const char* unit, boolean value);
-
+    
     /** 
      *  Publishes the SenML message to the RAPIFIRE.
      *  

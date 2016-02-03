@@ -105,30 +105,12 @@ boolean RapifireMqttClient::addStringValue(const char* name, const char* value)
   return addEvent(name, STRING_VALUE, text);
 }
 
-boolean RapifireMqttClient::addStringValue(const char* name, const char* unit, const char* value)
-{
-  String text = F("\"");
-  text += value;
-  text += F("\"");
-  
-  return addEvent(name, STRING_VALUE, text, unit);
-}
-
 boolean RapifireMqttClient::addBooleanValue(const char* name, boolean value)
 {
   if (value) {
     addEvent(name, BOOL_VALUE, TRUE);
   } else {
     addEvent(name, BOOL_VALUE, FALSE);
-  }
-}
-
-boolean RapifireMqttClient::addBooleanValue(const char* name, const char* unit, boolean value)
-{
-  if (value) {
-    addEvent(name, BOOL_VALUE, TRUE, unit);
-  } else {
-    addEvent(name, BOOL_VALUE, FALSE, unit);
   }
 }
 

@@ -1,4 +1,4 @@
-# RapifireMqttClient
+# RapifireMqttClient version 1.3
 
 ### Constructors
 
@@ -7,7 +7,7 @@
 ### Methods
 
 * [connect()](connect.md)
-* connected()
+* [connected()](connected.md)
 * addValue()
 * addStringValue()
 * addBooleanValue()

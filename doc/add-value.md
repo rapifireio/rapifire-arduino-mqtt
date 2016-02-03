@@ -4,7 +4,7 @@
 
 ### Description
 
-Adds a new event to the current [SenML](http://blog.rapifire.com/2015/12/21/introduction-to-senml/) message.
+Adds a new event with a numeric to the current [SenML](http://blog.rapifire.com/2015/12/21/introduction-to-senml/) message.
 
 ### Syntax
 

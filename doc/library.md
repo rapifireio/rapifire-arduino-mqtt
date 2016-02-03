@@ -6,7 +6,7 @@
 
 ### Methods
 
-* connect()
+* [connect()](connect.md)
 * connected()
 * addValue()
 * addStringValue()

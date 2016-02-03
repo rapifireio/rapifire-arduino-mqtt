@@ -20,7 +20,7 @@ Constructors used to create an instance of the class.
 
 ### Examples
 
-The constructor usage without the callback function. You can use it if you only planing to send the data to  RAPIFIRE.
+The constructor usage without the callback function. You can use it if you only planing to send the data to RAPIFIRE.
 
 ```c++
 #include <YunClient.h>

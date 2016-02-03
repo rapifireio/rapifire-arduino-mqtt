@@ -18,7 +18,7 @@ The method has no parameters.
 
 ### Returns
 
-__TRUE__ if the client is still connected to RAPIFIRE.
+* __TRUE__ if the client is still connected to RAPIFIRE.
 
 ### Examples
 
@@ -34,5 +34,7 @@ void loop() {
 	if (!rapifire.connected()) {
 		rapifire.connect();
 	}
+	
+	// The other code here
 }
 ```

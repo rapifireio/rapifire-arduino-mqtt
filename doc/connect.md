@@ -18,7 +18,7 @@ The method has no parameters.
 
 ### Returns
 
-__TRUE__ if the connection succeeded.
+* __TRUE__ if the connection succeeded.
 
 ### Examples
 

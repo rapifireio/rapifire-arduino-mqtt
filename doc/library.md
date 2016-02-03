@@ -8,7 +8,7 @@
 
 * [connect()](connect.md)
 * [connected()](connected.md)
-* addValue()
+* [addValue()](add-value.md)
 * addStringValue()
 * addBooleanValue()
 * publish()

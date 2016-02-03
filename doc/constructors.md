@@ -8,8 +8,13 @@ Constructors used to create an instance of the class.
 
 ### Syntax
 
-* RapifireMqttClient(thingId, thingToken, client)
-* RapifireMqttClient(thingId, thingToken, callback, client)
+```c++
+RapifireMqttClient(thingId, thingToken, client)
+```
+
+```c++
+RapifireMqttClient(thingId, thingToken, callback, client)
+```
 
 ### Parameters
 

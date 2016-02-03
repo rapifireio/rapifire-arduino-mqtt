@@ -8,7 +8,9 @@ The method initialize a connection with RAPIFIRE.
 
 ### Syntax
 
-* connect()
+```c++
+connect()
+```
 
 ### Parameters
 

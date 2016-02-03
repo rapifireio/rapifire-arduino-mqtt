@@ -2,6 +2,10 @@
 
 The library simplifies the integration of Arduino projects with the [RAPIFIRE](http://rapifire.com) platform.
 
+### Documentation
+
+The library documentation is avaliable on [GitHub](doc/library.md).
+
 ### Examples
 
 The library is provided with the following examples:

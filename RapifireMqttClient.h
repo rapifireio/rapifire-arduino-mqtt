@@ -1,7 +1,9 @@
 #ifndef RapifireMqttClient_h
 #define RapifireMqttClient_h
 
+#ifndef MQTT_MAX_PACKET_SIZE
 #define MQTT_MAX_PACKET_SIZE 256
+#endif
 
 #include <Client.h>
 #include <PubSubClient.h>

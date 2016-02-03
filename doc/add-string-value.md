@@ -12,10 +12,6 @@ Adds a new event with a text value to the current [SenML](http://blog.rapifire.c
 addStringValue(name, value);
 ```
 
-```c++
-addStringValue(name, unit, value);
-```
-
 ### Parameters
 
 * __name__ - a name of the value to add. It will be displayed in RAPIFIRE,
@@ -35,8 +31,3 @@ An event with a text value and without the unit specification.
 rapifire.addStringValue("host", "test-02");
 ```
 
-An event with a text value and the unit specification.
-
-```c++
-rapifire.addStringValue("temp", "Cel", "unknown");
-```

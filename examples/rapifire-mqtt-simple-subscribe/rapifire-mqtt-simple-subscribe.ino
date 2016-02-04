@@ -37,5 +37,7 @@ void loop() {
   }
 
   rapifire.loop();
+
+  delay(500);
 }
 

@@ -25,7 +25,7 @@ RapifireMqttClient::RapifireMqttClient(const char* thingId, const char* thingTok
   _dataTopic += F("/data");
   
   _commandsTopic += thingId; 
-  _commandsTopic += F("/commands");
+  _commandsTopic += F("/commands?accept=text");
 }
 
 boolean RapifireMqttClient::connect()

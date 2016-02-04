@@ -2,10 +2,6 @@
 
 The library simplifies the integration of Arduino projects with the [RAPIFIRE](http://rapifire.com) platform.
 
-### Documentation
-
-The library documentation is avaliable on [GitHub](doc/library.md).
-
 ### Examples
 
 The library is provided with the following examples:
@@ -21,6 +17,10 @@ The library uses [PubSubClient](https://github.com/knolleary/pubsubclient). Plea
 ### Compatible Hardware
 
 The library was tested on __Arduino YUN__ board. However it uses the Arduino Ethernet Client api so it will work with every board / shield that supports this api.
+
+### Documentation
+
+The library documentation is avaliable on [GitHub](doc/library.md).
 
 ### License
 

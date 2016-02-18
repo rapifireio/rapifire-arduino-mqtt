@@ -1,10 +1,6 @@
 #ifndef RapifireMqttClient_h
 #define RapifireMqttClient_h
 
-#ifndef MQTT_MAX_PACKET_SIZE
-#define MQTT_MAX_PACKET_SIZE 256
-#endif
-
 #include <Client.h>
 #include <PubSubClient.h>
 
@@ -20,7 +16,7 @@ const uint16_t RAPIFIRE_PORT = 1883;
 /**
  * Max size of a single MQTT message.
  * 
- * 256 (MQTT_MAX_PACKET_SIZE) - 8 (MQTT Headers) - 8 (JSON const part)
+ * 128 (MQTT_MAX_PACKET_SIZE) - 8 (MQTT Headers) - 8 (JSON const part)
  */
 const int RAPIFIRE_MAX_MSG_SIZE = MQTT_MAX_PACKET_SIZE - 16;
 
